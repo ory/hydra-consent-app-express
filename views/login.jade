@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title Please log in
+    body(style="text-align: center")
+        h1 Please log in
+        if error
+            p.
+                #{error}
+        form(action="",method="POST")
+            table(style="margin: 0 auto;")
+                tr
+                    td
+                        input(type="email",name="email",placeholder="email@foobar.com")
+                    td.
+                        (it's "#{user.email}")
+                tr
+                    td
+                        input(type="password",name="password")
+                    td.
+                        (it's "#{user.password}")
+            input(type="hidden",name="challenge",value=challenge)
+            input(type="submit",value="Log in")

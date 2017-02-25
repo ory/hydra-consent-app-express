@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title An application requests access to your data
+    body(style="text-align: center")
+        h1 An application requests access to your data!
+        if error
+            p.
+                #{error}
+        form(action="",method="POST")
+            p.
+                The application wants access to scopes:
+            each scope in scopes
+                input(type="checkbox",value=scope,name="allowed_scopes[]")
+                span #{scope}
+                br
+
+            input(type="hidden",name="challenge",value=challenge)
+            p
+                input(type="submit",value="Allow it!")
