@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 RUN npm install --silent; exit 0
-RUN npm run build
 
 ENTRYPOINT npm start
 
