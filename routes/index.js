@@ -3,19 +3,9 @@ const Hydra = require('hydra-js')
 const path = require('path')
 const router = express.Router()
 
-// Instantiating a hydra config. If you provide no settings, the hydra-js library will try to figure them out
+// Instantiating a hydra config. If you provide no config, the hydra-js library will try to figure them out
 // from the environment variables, such as HYDRA_CLIENT_ID, HYDRA_CLIENT_SECRET, and HYDRA_URL.
-const hydra = new Hydra({
-  client: {
-    id: 'admin',
-    secret: 'demo-password',
-  },
-  auth: {
-    tokenHost: 'http://localhost:4444',
-    authorizePath: '/oauth2/auth',
-    tokenPath: '/oauth2/token'
-  }
-})
+const hydra = new Hydra()
 
 // A simple error helper
 const catcher = (w) => (error) => {
