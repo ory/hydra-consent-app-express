@@ -15,6 +15,9 @@ const catcher = (w) => (error) => {
   return Promise.reject(error)
 }
 
+// Let's specify a standard redirect url where the user will be sent to if something goes wrong.
+const redir = process.env.DEFAULT_REDIRECT_URL
+
 // This is a mock object for the user. Usually, you would fetch this from, for example, mysql, or mongodb, or somewhere else.
 // The data is arbitrary, but will require a unique user id.
 const user = {
@@ -61,8 +64,8 @@ const resolveConsent = (r, w, challenge, scopes = []) => {
 }
 
 router.get('/consent', (r, w) => {
-  // This endpoint is hit when hydra initiates the consent flow  
-  
+  // This endpoint is hit when hydra initiates the consent flow
+
   if (!r.session.isAuthenticated) {
     // The user is not authenticated yet, so redirect him to the log in page
     return w.redirect('/login?error=Please+log+in&challenge=' + r.query.challenge)
@@ -74,10 +77,10 @@ router.get('/consent', (r, w) => {
   // Ok, the user is authenticated! Let's show the consent screen!
   hydra.verifyConsentChallenge(r.query.challenge).then(({ challenge }) => {
     // challenge contains informations such as requested scopes, client id, ...
-    
+
     // Here you could, for example, allow clients to force a user's consent. Since you're able to
     // say which scopes a client can request in hydra, you could allow this for a few highly priviledged clients!
-    // 
+    //
     // if (challenge.scp.find((s) => s === 'force-consent')) {
     //   resolveConsent(r, w, r.query.challenge, challenge.scp)
     //   return Promise.resolve()
