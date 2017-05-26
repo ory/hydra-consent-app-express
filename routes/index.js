@@ -111,7 +111,6 @@ router.post('/login', (r, w) => {
   }
 
   r.session.isAuthenticated = true
-  console.log(r.session)
   w.redirect('/consent?challenge=' + r.body.challenge)
 })
 
