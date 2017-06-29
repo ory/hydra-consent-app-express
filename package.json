@@ -22,7 +22,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "express-session": "^1.15.1",
-    "hydra-js": "^0.1.0",
+    "hydra-js": "^0.1.1",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"

@@ -505,9 +505,9 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-hydra-js@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/hydra-js/-/hydra-js-0.1.0.tgz#d6011469219e193c709fd152d6f78ea589591851"
+hydra-js@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/hydra-js/-/hydra-js-0.1.1.tgz#f4d6c8dd6ac8eb4f276a307aa380e1a6080ea424"
   dependencies:
     jsonwebtoken "^7.1.9"
     jwk-to-pem "^1.2.5"
