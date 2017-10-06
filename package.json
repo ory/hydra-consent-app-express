@@ -24,7 +24,7 @@
     "express-session": "^1.15.1",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "ory-hydra-sdk": "^0.10.0-alpha.5",
+    "ory-hydra-sdk": "^0.10.0-alpha.7",
     "serve-favicon": "~2.3.0",
     "simple-oauth2": "^1.3.0"
   }

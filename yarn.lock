@@ -667,9 +667,9 @@ optimist@~0.3.5:
   dependencies:
     wordwrap "~0.0.2"
 
-ory-hydra-sdk@^0.10.0-alpha.5:
-  version "0.10.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/ory-hydra-sdk/-/ory-hydra-sdk-0.10.0-alpha.5.tgz#6159fda463f9cb660c4f94cd12880e06e3079119"
+ory-hydra-sdk@^0.10.0-alpha.7:
+  version "0.10.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/ory-hydra-sdk/-/ory-hydra-sdk-0.10.0-alpha.7.tgz#7db7de962dea4ecc9ab37261cfa2f03338f1d823"
   dependencies:
     superagent "3.5.2"
 
