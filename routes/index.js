@@ -2,12 +2,13 @@ const express = require('express')
 const Hydra = require('ory-hydra-sdk')
 const router = express.Router()
 const OAuth2 = require('simple-oauth2')
+const qs = require('querystring')
 
 const scope = 'hydra.consent hydra.consent.*'
 const oauth2 = OAuth2.create({
   client: {
-    id: process.env.HYDRA_CLIENT_ID,
-    secret: process.env.HYDRA_CLIENT_SECRET
+    id: qs.escape(process.env.HYDRA_CLIENT_ID),
+    secret: qs.escape(process.env.HYDRA_CLIENT_SECRET)
   },
   auth: {
     tokenHost: endpoint = process.env.HYDRA_URL,
@@ -163,6 +164,9 @@ router.post('/login', (r, w) => {
   w.redirect('/consent?consent=' + r.body.consent)
 })
 
-router.get('/', (r, w) => w.send('This is an exemplary consent app for Hydra. Please read the hydra docs on how to use this router.'))
+router.get('/', (
+  r,
+  w
+) => w.send('This is an exemplary consent app for Hydra. Please read the hydra docs on how to use this router.'))
 
 module.exports = router
