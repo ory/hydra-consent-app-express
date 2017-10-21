@@ -4,7 +4,7 @@ const router = express.Router()
 const OAuth2 = require('simple-oauth2')
 const qs = require('querystring')
 
-const scope = 'hydra.consent hydra.consent.*'
+const scope = 'hydra.consent'
 const oauth2 = OAuth2.create({
   client: {
     id: qs.escape(process.env.HYDRA_CLIENT_ID),
