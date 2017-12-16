@@ -10,3 +10,5 @@ A consent application is responsible for:
 You can use this demo for a rough guide on how to implement the consent flow using NodeJS. The only important source file is [this](https://github.com/ory/hydra-consent-app-express/blob/master/routes/index.js), everything else was created using `express init .`.
 
 If you are using Auth0, check out [hydra-auth0-consent-sdk](https://github.com/ory/hydra-auth0-consent-sdk)
+
+A go implementation of the consent app is at [hydra-consent-app-go](https://github.com/ory/hydra-consent-app-go)
