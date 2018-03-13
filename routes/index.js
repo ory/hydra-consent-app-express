@@ -131,7 +131,7 @@ router.get('/consent', (r, w) => {
       // say which scopes a client can request in hydra, you could allow this for a few highly priviledged clients!
       //
       // if (consentRequest.scp.find((s) => s === 'force-consent')) {
-      //   resolveConsent(r, w, r.query.consent, consentRequest.scp)
+      //   resolveConsent(r, w, r.query.consent, consentRequest.requestedScopes)
       //   return Promise.resolve()
       // }
 
