@@ -7,5 +7,6 @@ html
             An error occurred
         p.
             #{description}
-        pre(style="text-align: left;").
-            #{error}
+        pre(style="text-align: left; width: 100%; overflow: auto;")
+            code.
+                #{JSON.stringify(error, null, 2)}

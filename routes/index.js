@@ -3,6 +3,7 @@ const Hydra = require('ory-hydra-sdk')
 const router = express.Router()
 const OAuth2 = require('simple-oauth2')
 const qs = require('querystring')
+const process = require('process')
 
 const scope = 'hydra.consent'
 const oauth2 = OAuth2.create({
@@ -37,7 +38,10 @@ const refreshToken = () => oauth2.clientCredentials
     return Promise.resolve(token)
   })
 
-refreshToken().then()
+refreshToken().then().catch((err) => {
+  console.error('Unable to refresh token, an error occurred: ', err)
+  process.exit(1)
+})
 
 // A simple error helper
 const catcher = (w) => (error) => {
@@ -112,13 +116,14 @@ const resolveConsent = (r, w, consent, grantScopes = []) => {
 
 router.get('/consent', (r, w) => {
   // This endpoint is hit when hydra initiates the consent flow
+  if (r.query.error) {
+    // An error occurred (at hydra)
+    return w.render('error', { error: { name: r.query.error, message: r.query.error_description } })
+  }
 
   if (!r.session.isAuthenticated) {
     // The user is not authenticated yet, so redirect him to the log in page
     return w.redirect('/login?error=Please+log+in&consent=' + r.query.consent)
-  } else if (r.query.error) {
-    // An error occurred (at hydra)
-    return w.render('error', { error: { name: r.query.error, message: r.query.error_description } })
   }
 
   refreshToken().then(() => {
